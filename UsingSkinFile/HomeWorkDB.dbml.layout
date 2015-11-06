@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="HomeWorkDB">
+  <DataContextMoniker Name="/HomeWorkDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1d83d3ab-b967-4a35-8501-608e1ff08a29" absoluteBounds="3.5, 3, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/HomeWorkDBDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8483d07b-2388-4584-8614-50e88a8ec3c9" absoluteBounds="3.515, 3.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcde4a37-4d9d-4ca1-9d8b-2da1ebd68f0b" absoluteBounds="6, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HomeWorkDBDataContext/Order" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9527818d-3063-4672-aac5-e607c87b37e9" absoluteBounds="6.015, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12d0accf-3d6d-4975-909a-e5e3a9e609b3" absoluteBounds="3.5, 0.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HomeWorkDBDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2d465029-a695-4307-90cf-f2662ff41272" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a4e8644-b659-49f8-b325-bd544597e91b" absoluteBounds="1, 1.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/HomeWorkDBDataContext/Supplier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a2cea8e0-0e55-49cf-b7a3-c336b8b2b366" absoluteBounds="1.0150000000000001, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 3.2853173252666); (6.38111418030236 : 3.2853173252666); (6.38111418030236 : 2.64589680989583)]" fixedFrom="Caller" fixedTo="Caller">
+      <AssociationMoniker Name="/HomeWorkDBDataContext/Customer/Customer_Order" />
+      <nodes>
+        <classShapeMoniker Id="1d83d3ab-b967-4a35-8501-608e1ff08a29" />
+        <classShapeMoniker Id="dcde4a37-4d9d-4ca1-9d8b-2da1ebd68f0b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.76044840494792); (6 : 1.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HomeWorkDBDataContext/Product/Product_Order" />
+      <nodes>
+        <classShapeMoniker Id="12d0accf-3d6d-4975-909a-e5e3a9e609b3" />
+        <classShapeMoniker Id="dcde4a37-4d9d-4ca1-9d8b-2da1ebd68f0b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 2.26044840494792); (3.5 : 2.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HomeWorkDBDataContext/Supplier/Supplier_Product" />
+      <nodes>
+        <classShapeMoniker Id="1a4e8644-b659-49f8-b325-bd544597e91b" />
+        <classShapeMoniker Id="12d0accf-3d6d-4975-909a-e5e3a9e609b3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

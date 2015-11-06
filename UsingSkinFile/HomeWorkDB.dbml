@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HomeWorkDB" EntityNamespace="HomeWorkDB.Model" ContextNamespace="HomeWorkDB" Class="HomeWorkDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=NH;Initial Catalog=HomeWorkDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="HomeWorkDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="cid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="cAddress" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="cEmail" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="cPhone" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Customer_Order" Member="Orders" ThisKey="cid" OtherKey="cid" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="oid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="oQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="oPrice" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Order" Member="Customer" ThisKey="cid" OtherKey="cid" Type="Customer" IsForeignKey="true" />
+      <Association Name="Product_Order" Member="Product" ThisKey="pid" OtherKey="pid" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="pid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pName" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Column Name="PQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pPrice" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="supID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Order" Member="Orders" ThisKey="pid" OtherKey="pid" Type="Order" />
+      <Association Name="Supplier_Product" Member="Supplier" ThisKey="supID" OtherKey="supID" Type="Supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Suppliers" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="supID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="supName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="supAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Supplier_Product" Member="Products" ThisKey="supID" OtherKey="supID" Type="Product" />
+    </Type>
+  </Table>
+</Database>
